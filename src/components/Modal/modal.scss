@@ -1,0 +1,138 @@
+.modal {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	display: none;
+	align-items: center;
+	justify-content: center;
+	background: rgba(0, 0, 0, 0.85);
+
+	&.is-open {
+		display: flex;
+	}
+
+	&__close {
+		position: absolute;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		top: 0.5rem;
+		right: 0.5rem;
+		width: 2.5rem;
+		height: 2.5rem;
+		background: transparent;
+		border: none;
+		transition: transform 0.35s ease-in-out;
+		cursor: pointer;
+
+		&:hover {
+			transform: rotate(360deg);
+		}
+
+		&::before,
+		&::after {
+			content: '';
+			width: 0.125rem;
+			height: 1.875rem;
+			background: black;
+		}
+
+		&::before {
+			transform: rotate(-45deg) translateY(1px);
+		}
+
+		&::after {
+			transform: rotate(45deg) translateY(1px);
+		}
+	}
+
+	&__trigger {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		padding: 1rem 1.125rem;
+		background: white;
+		border: 1px solid #A0A3A9;
+		border-radius: 0.625rem;
+		// box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+		color: #515761;
+		font-family: 'Rubik', sans-serif;
+		font-size: 1rem;
+		font-weight: 400;
+		text-align: left;
+		transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+		cursor: pointer;
+
+		&:hover {
+			background: #f5f5f5;
+			box-shadow: 0 14px 28px rgba(0, 0, 0, 0.125), 0 10px 10px rgba(0, 0, 0, 0.11);
+		}
+	}
+
+	&__content {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+		max-width: 80vw;
+		// height: 95vh;
+		margin-top: 2rem;
+		padding: 20px;
+		background: white;
+		border-radius: 10px;
+
+		@media (min-width: 992px) {
+			max-width: 51.875rem;
+			// width: auto;
+		}
+	}
+
+	&__header {
+		flex: 0 1 auto;
+
+		h3 {
+			margin-bottom: 0.875rem;
+			color: white;
+			font-size: 1.5rem;
+			font-weight: 300;
+			text-align: center;
+		}
+	}
+
+	&__body {
+		flex: 1 1 auto;
+		height: 100%;
+
+		// background: whitesmoke;
+		object {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			&:has(p) {
+				color: white;
+				font-size: 1.5rem;
+				text-align: center;
+			}
+		}
+	}
+
+	&__footer {
+		flex: 0 1 auto;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding-top: 1rem;
+		padding-bottom: 1rem;
+
+		button {
+			background: transparent;
+			border: none;
+			color: white;
+			font-size: 1.25rem;
+			font-weight: 500;
+		}
+	}
+}
